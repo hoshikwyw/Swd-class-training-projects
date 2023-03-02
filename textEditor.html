@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <title>Text Editor</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="my-5" id="output">Your Text Is Here...</div>
+          <div
+            style="bottom: 30px; left: 0; right: 0; max-width: 500px"
+            class="position-fixed mx-auto border rounded pb-3 px-2 row g-3 bg-white"
+          >
+            <div class="col-12">
+              <div class="d-flex justify-content-between">
+                <label for="" class="form-label">Type Something</label>
+                <div>Count : <span id="count">0</span></div>
+              </div>
+              <textarea
+                class="form-control"
+                name=""
+                id="text"
+                rows="5"
+                placeholder="Type Here"
+              ></textarea>
+            </div>
+            <div class="col">
+              <label for="" class="form-label">Font Family</label>
+              <select class="form-select" name="" id="fontFamily">
+                <option value="">Select font</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <div class="">
+                <label for="" class="form-label">Select Color</label>
+                <input
+                  type="color"
+                  id="color"
+                  class="w-100 form-control form-control-color"
+                />
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="" class="form-label">Font Size</label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="16"
+                id="fontSize"
+                class="form-range"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./tc.js"></script>
+  </body>
+</html>

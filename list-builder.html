@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list</title>
+    <link rel="stylesheet" href="./css/lb.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="" id="builder">
+            <h4 class="my-3">List Builder</h4>
+            <div class="input-group mb-4">
+              <input type="text" name="" id="textInput" class="form-control" />
+              <button id="createBtn" class="btn btn-dark">
+                <i class="bi bi-plus-circle"></i> Add List
+              </button>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Total : <span class="badge bg-black" id="total">0</span></p>
+              <p>Done List : <span class="badge bg-black" id="doneCount">0</span></p>
+            </div>
+            <ul id="lists" class="list-group"></ul>
+          </div>
+      </div>
+    </div>
+    <script src="./lb.js"></script>
+  </body>
+</html>
