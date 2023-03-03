@@ -7,9 +7,9 @@ const doneCount = document.querySelector("#doneCount");
 const data = [
   "Sar pee pe lar",
   "morning",
-  "good night",
-  "read book",
-  "learn JavaScript",
+  // "good night",
+  // "read book",
+  // "learn JavaScript",
 ];
 
 const counter = () => {
@@ -40,10 +40,10 @@ const createLi = (text) => {
   </label>
 </div>
 <div class="btn-group">
-<button class="btn btn-outline-dark btn-sm " onclick="edit(event)">
+<button class="btn btn-outline-dark btn-sm  edit-btn" >
   <i class="bi bi-pencil pe-none"></i>
 </button>
-<button class="btn btn-outline-danger btn-sm " onclick="del(event)">
+<button class="btn btn-outline-danger btn-sm  del-btn" >
   <i class="bi bi-trash3 pe-none"></i>
 </button>
 </div>
@@ -85,7 +85,31 @@ const del = (event) => {
   }
 };
 
+lists.addEventListener("click", (event) => {
+  // console.log(event.target);
+  if (event.target.classList.contains("del-btn")) {
+    //   if (confirm("Are you sure to delete this?")) {
+    //     // event.target.parentElement.remove();
+    //     event.target.closest("li").remove();
+    //     counter();
+    //   }
+    del(event);
+  } else if (event.target.classList.contains("edit-btn")) {
+    // const old = event.target.closest("li").querySelector(".form-check-label");
+    // const newText = prompt("New Text", old.innerText);
+    // if (newText && newText.trim()) {
+    //   old.innerText = newText;
+    // }
+    edit(event);
+  }
+});
+
 data.forEach((d) => lists.append(createLi(d)));
+
+// [...lists.children].forEach((li) => {
+//   li.querySelector(".edit-btn").addEventListener("click", edit);
+//   li.querySelector(".del-btn").addEventListener("click", del);
+// });
 
 createBtn.addEventListener("click", addList);
 
