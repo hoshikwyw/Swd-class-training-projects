@@ -9,3 +9,14 @@ $component-active-bg: black;
 
 // @import url(../node_modules/bootstrap/scss/bootstrap.scss);
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.del-btn {
+  //   display: none;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+tr:hover .del-btn {
+  //   display: inline;
+  transform: scale(1);
+}
