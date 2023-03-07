@@ -9,11 +9,28 @@
   </head>
   <body>
     <div id="app">
+      <!-- <div id="sideBar" class="side-bar position-fixed w-25 vh-100 bg-black">
+        <div
+          class="d-flex justify-content-between text-white p-2 align-items-center"
+        >
+          <h4>MMS IT</h4>
+          <i class="bi bi-x-lg menu"></i>
+        </div>
+      </div> -->
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="d d-flex justify-content-between align-items-center">
-              <h1 class="my-3">Invoice App</h1>
+              <h1 class="my-3">
+                <i
+                  class="bi bi-list menu"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasExample"
+                  aria-controls="offcanvasExample"
+                >
+                </i>
+                Invoice App
+              </h1>
               <button
                 class="btn btn-outline-dark d-print-none"
                 onclick="print()"
@@ -24,9 +41,17 @@
             <div class="border mb-3 p-3 d-print-none">
               <form id="invoiceForm">
                 <div class="row">
-                  <div class="col">
+                  <div class="col-6">
                     <div class="">
-                      <label for="" class="form-label">Select Service</label>
+                      <label for="" class="form-label"
+                        >Select Service
+                        <span
+                          id="addServiceOpenBtn"
+                          class="badge bg-black rounded-pill"
+                        >
+                          Add Service
+                        </span>
+                      </label>
                       <select
                         name=""
                         id="selectService"
@@ -84,7 +109,121 @@
         </div>
       </div>
       <h1 class="d-none d-print-block">This will show in print</h1>
+
+      <!-- <div
+        id="addServiceModel"
+        class="d-none position-fixed w-100 top-0 end-0 bg-transparent-50"
+      >
+        <div class="row min-vh-100 justify-content-center align-items-center">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="bg-white p-5">
+              <h4></h4>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="addServiceModel"
+        tabindex="-1"
+        aria-labelledby="addServiceModelLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addServiceModelLabel">
+                Add New Service
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" id="addServiceForm">
+                <div class="mb-3">
+                  <label for="">Service Title</label>
+                  <input
+                    type="text"
+                    name="serviceTitle"
+                    id=""
+                    class="form-control required"
+                  />
+                </div>
+                <div class="mb-5">
+                  <label for="">Price</label>
+                  <input
+                    type="number"
+                    name="servicePrice"
+                    id=""
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                id="closeServiceModelBtn"
+                type="button"
+                data-bs-dismiss="modal"
+                class="btn btn-outline-dark"
+              >
+                Close
+              </button>
+              <button class="btn btn-dark" form="addServiceForm">
+                Add New
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you
+            have chosen. Like, text, images, lists, etc.
+          </div>
+          <div class="dropdown mt-3">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/invoice.js"></script>
   </body>
 </html>

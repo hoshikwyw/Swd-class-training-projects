@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="./css/invoice.css" />
     <title>Text Editor</title>
   </head>
   <body>
@@ -20,9 +21,19 @@
             class="position-fixed mx-auto border rounded pb-3 px-2 row g-3 bg-white"
           >
             <div class="col-12">
-              <div class="d-flex justify-content-between">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
                 <label for="" class="form-label">Type Something</label>
-                <div>Count : <span id="count">0</span></div>
+                <div class="d-flex align-items-center">
+                  <button class="btn btn-outline-dark me-2" id="speechToText">
+                    <i class="bi btn-sm bi-mic"></i>
+                  </button>
+                  <button class="btn btn-outline-dark me-2" id="textToSpeech">
+                    <i class="bi btn-sm bi-volume-up"></i>
+                  </button>
+                  <div class="">Count : <span id="count">0</span></div>
+                </div>
               </div>
               <textarea
                 class="form-control"

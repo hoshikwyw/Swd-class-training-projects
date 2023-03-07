@@ -32,6 +32,13 @@ const subTotal = document.querySelector("#subTotal");
 const tax = document.querySelector("#tax");
 const total = document.querySelector("#total");
 const listTable = document.querySelector("#listTable");
+const addServiceOpenBtn = document.querySelector("#addServiceOpenBtn");
+// const addServiceModel = document.querySelector("#addServiceModel");
+const closeServiceModelBtn = document.querySelector("#closeServiceModelBtn");
+const addServiceForm = document.querySelector("#addServiceForm");
+const sideBar = document.querySelector("#sideBar");
+const menu = document.querySelectorAll(".menu");
+const addServiceModel = new bootstrap.Modal("#addServiceModel");
 
 // functions
 
@@ -43,7 +50,17 @@ const createTr = (service, quantity) => {
   tr.innerHTML = `
   
                 <td class="d-flex justify-content-between">${service.title}
-                <i class="bi bi-trash3 text-danger del-btn"></i>
+                <div class="dropdown">
+                <i class="bi bi-three-dots-vertical dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    
+                  </i>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item del-btn" href="#">Delete</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+                </div>
+                
                 </td>
                 <td class="text-end list-quantity">${quantity}</td>
                 <td class="text-end">${service.price}</td>
@@ -99,9 +116,7 @@ invoiceForm.addEventListener("submit", (event) => {
   //   services.find((service) => service.id == selectService.value)
   // );
 
-  const selectedService = services.find(
-    ({ id }) =>id == selectService.value
-  );
+  const selectedService = services.find(({ id }) => id == selectService.value);
 
   const isExistedService = [...lists.children].find(
     (el) => el.getAttribute("service-id") == selectedService.id
@@ -134,3 +149,48 @@ app.addEventListener("click", (event) => {
   }
   // console.log(currentElement);
 });
+
+addServiceOpenBtn.addEventListener("click", () => {
+  // console.log("add service");
+  //Idea create element
+  //idea hide show
+  // addServiceModel.classList.remove("d-none");
+  addServiceModel.show();
+});
+
+// closeServiceModelBtn.addEventListener("click", () => {
+//   addServiceModel.classList.add("d-none");
+// });
+
+addServiceForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("add service");
+  console.dir(event.target);
+
+  const formData = new FormData(event.target);
+  console.log(formData.get("serviceTitle"), formData.get("servicePrice"));
+
+  //add data
+
+  const id = Date.now();
+
+  services.push({
+    id,
+    title: formData.get("serviceTitle"),
+    price: formData.get("servicePrice"),
+  });
+
+  // add to dom
+  selectService.append(new Option(formData.get("serviceTitle"), id));
+
+  //close modern box
+  event.target.reset();
+  // addServiceModel.classList.add("d-none");
+  addServiceModel.hide();
+});
+
+// menu.forEach((el) => {
+//   el.addEventListener("click", () => {
+//     sideBar.classList.toggle("active");
+//   });
+// });

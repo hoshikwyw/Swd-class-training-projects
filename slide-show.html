@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide-Show</title>
+    <link rel="stylesheet" href="./css/invoice.css" />
+    <style>
+      .photo {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="photoUpload" multiple class="d-none" />
+    <div class="m-5 p-5 border border-secondary text-center" id="uploaderUI">
+      <h1 class="mb-0">Click To Upload</h1>
+    </div>
+    <div id="photos" class="m-5 p-5 border border-dark text-center">
+      <div class="text-center mb-3">
+        <button class="btn btn-dark" id="createSlideShow">
+          Create slide show
+        </button>
+      </div>
+    </div>
+    <div id="output" class="output"></div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/slideshow.js"></script>
+  </body>
+</html>
